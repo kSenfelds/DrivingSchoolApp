@@ -37,8 +37,9 @@ namespace School.Services
             Update<Student>(entity);
         }
         
-        public void Delete(Student entity)
+        public void Delete(int id)
         {
+            var entity = GetById<Student>(id);
             Delete<Student>(entity);
         }
     }

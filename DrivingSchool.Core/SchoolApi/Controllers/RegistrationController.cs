@@ -24,11 +24,11 @@ namespace SchoolApi.Controllers
         }
 
         [HttpDelete]
-        public IActionResult UnregisterStudent(Student student)
+        public IActionResult DeleteStudent(int id)
         {
             //validate
-            _schoolService.Delete(student);
-            return Ok(student);
+            _schoolService.Delete(id);
+            return Ok();
         }
     }
 }
