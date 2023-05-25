@@ -13,12 +13,22 @@ public class Validator
     public bool IdCannotBeFound(int id)
     {
         var student = _service.GetById<Student>(id);
-        return student.Id != id;
+        if (student == null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public bool InvalidTitle(string mark)
     {
-        return mark != "theory" || mark != "driving";
+        if (mark == "theory" || mark == "driving")
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public bool ValidMark(int mark)

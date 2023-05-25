@@ -67,7 +67,7 @@ export const RegistrationForm = () => {
   return (
     <form
       noValidate
-      className="registration-form"
+      className="form-group"
       onSubmit={(e) => {
         e.preventDefault();
         // start validate
@@ -160,7 +160,6 @@ export const RegistrationForm = () => {
         });
 
         if (!emailError && !nameError && !lastNameError && !yearOfBirthError && !phoneNumberError && !addressError && !cityError && !trainingCategoryError) {
-          alert("Form is valid");
           const student: Student = {
             email,
             name,
@@ -173,6 +172,40 @@ export const RegistrationForm = () => {
             dateOfRegistration: new Date(),
             };
             AddStudent(student);
+            setForm({
+                name: {
+                    value: "",
+                    error: "",
+                },
+                lastName: {
+                    value: "",
+                    error: "",
+                },
+                yearOfBirth: {
+                    value: "",
+                    error: ''
+                },
+                phoneNumber: {
+                    value: '',
+                    error: ''
+                },
+                email: {
+                    value: '',
+                    error: ''
+                },
+                address: {
+                    value: '',
+                    error: ''
+                },
+                city: {
+                    value: '',
+                    error: ''
+                },
+                trainingCategory: {
+                    value: '',
+                    error: ''
+                },
+            });
           }
         return;
       }}
