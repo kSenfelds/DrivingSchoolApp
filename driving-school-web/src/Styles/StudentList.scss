@@ -1,0 +1,17 @@
+.student-list {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 10px auto;
+
+    .student-items {
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+}

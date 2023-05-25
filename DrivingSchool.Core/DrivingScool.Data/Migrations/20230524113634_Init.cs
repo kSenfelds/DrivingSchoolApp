@@ -33,6 +33,8 @@ namespace DrivingSchool.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     City = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    TrainingCategory = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     DateOfTheoryExam = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     DateOfDrivingExam = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     TheoryMark = table.Column<int>(type: "int", nullable: true),

@@ -64,6 +64,10 @@ namespace DrivingSchool.Data.Migrations
                     b.Property<int?>("TheoryMark")
                         .HasColumnType("int");
 
+                    b.Property<string>("TrainingCategory")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("YearOfBirth")
                         .HasColumnType("int");
 

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DrivingSchool.Data.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20230523073202_Init")]
+    [Migration("20230524113634_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,10 @@ namespace DrivingSchool.Data.Migrations
 
                     b.Property<int?>("TheoryMark")
                         .HasColumnType("int");
+
+                    b.Property<string>("TrainingCategory")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("YearOfBirth")
                         .HasColumnType("int");

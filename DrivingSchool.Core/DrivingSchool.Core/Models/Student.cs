@@ -11,20 +11,12 @@ namespace DrivingSchool.Core.Models
         public DateTime DateOfRegistration { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public enum  TrainingCategory
-        {
-            A,
-            A1,
-            B,
-            BE,
-            C,
-            CE,
-            D,
-            M
-        }
+        public string  TrainingCategory { get; set; }
         public DateTime? DateOfTheoryExam { get; set; }
         public DateTime? DateOfDrivingExam { get; set; }
         public int? TheoryMark { get; set; }
         public int? DrivingMark { get; set; }
+        public string? UniqueTheoryCode { get; set; }
+        public string? UniqueDrivingCode { get; set; }
     }
 }

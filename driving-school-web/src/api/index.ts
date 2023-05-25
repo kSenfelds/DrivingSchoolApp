@@ -35,3 +35,12 @@ export const SetExamDate = async (id: number, examTitle: ["theory" | "driving"],
         console.log(error)
     }
 }
+
+export const GetAllStudents = async () => {
+    try {
+        const { data } = await axios.get(`${BASE_URL}teacher`);
+        return data;
+    }catch(error){
+        console.log(error)
+    }
+}

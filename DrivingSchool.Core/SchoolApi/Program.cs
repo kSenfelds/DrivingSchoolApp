@@ -20,6 +20,10 @@ builder.Services.AddScoped<ISchoolService, SchoolService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseCors(options => options
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.UseHttpsRedirection();
 

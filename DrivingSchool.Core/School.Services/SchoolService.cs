@@ -32,15 +32,33 @@ namespace School.Services
         public void SetExamDate(int id, string examTitle, DateTime date)
         {
             var entity = GetById<Student>(id);
-            entity.DateOfTheoryExam = examTitle=="theory"? entity.DateOfTheoryExam = date: null;
-            entity.DateOfDrivingExam = examTitle=="driving"? entity.DateOfDrivingExam = date: null;
+            if (examTitle == "theory")
+            {
+                entity.DateOfTheoryExam = date;
+                entity.UniqueTheoryCode = Guid.NewGuid().ToString();
+            }
+            else if (examTitle == "driving")
+            {
+                entity.DateOfDrivingExam = date;
+                entity.UniqueDrivingCode = Guid.NewGuid().ToString();
+            }
+            else
+            {
+                throw new ArgumentException("Invalid exam title");
+            }
+            
             Update<Student>(entity);
         }
         
         public void Delete(int id)
         {
-            var entity = GetById<Student>(id);
-            Delete<Student>(entity);
+            
+            Delete<Student>(id);
+        }
+
+        public List<Student> GetAll()
+        {
+            return GetAll<Student>();
         }
     }
 }
