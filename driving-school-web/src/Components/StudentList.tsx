@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Student } from "../Types/student";
 import { Select } from "./Select";
 import { EditMark, GetAllStudents, SendEmail } from "../api";
-import "../Styles/StudentList.scss";
 import { SetExamDate } from "../api";
 import DateTimePicker from "react-datetime-picker";
+import "react-datetime-picker/dist/DateTimePicker.css"
+import "react-calendar/dist/Calendar.css";
+import "react-clock/dist/Clock.css";
 
 export const StudentList = () => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -116,7 +118,7 @@ export const StudentList = () => {
                         <div>
                           {student.dateOfDrivingExam == undefined ? (
                             <div className="set-button">
-                              <DateTimePicker
+                              <DateTimePicker 
                                 onChange={(e) => {
                                   setDate(e as Date);
                                 }}
@@ -157,7 +159,7 @@ export const StudentList = () => {
                         <div>
                           {student.dateOfTheoryExam == undefined ? (
                             <div className="set-button">
-                              <DateTimePicker
+                              <DateTimePicker className = "date-picker"
                                 onChange={(e) => setDate(e as Date)}
                                 value={date}
                               />

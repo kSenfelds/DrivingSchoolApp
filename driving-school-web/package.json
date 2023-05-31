@@ -13,6 +13,8 @@
     "axios": "^1.4.0",
     "axioss": "^0.0.1-security",
     "react": "^18.2.0",
+    "react-calendar": "^4.2.1",
+    "react-date-time-picker-popup": "^1.0.3",
     "react-datetime-picker": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.2",
