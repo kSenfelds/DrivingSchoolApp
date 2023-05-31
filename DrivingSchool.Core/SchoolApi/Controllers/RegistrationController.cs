@@ -9,11 +9,11 @@ namespace SchoolApi.Controllers
     public class RegistrationController : ControllerBase
     {
         private readonly ISchoolService _schoolService;
-        private Validator _validator;
-        public RegistrationController(ISchoolService schoolService)
+        private IValidator _validator;
+        public RegistrationController(ISchoolService schoolService, IValidator validator)
         {
             _schoolService = schoolService;
-            _validator = new Validator(schoolService);
+            _validator = validator;
         }
 
         [HttpPut]
@@ -26,7 +26,7 @@ namespace SchoolApi.Controllers
         [HttpDelete]
         public IActionResult DeleteStudent(int id)
         {
-            if (_validator.IdCannotBeFound(id))
+            if (!_schoolService.IdIsValid(id))
             {
                 return BadRequest();
             }
@@ -39,7 +39,7 @@ namespace SchoolApi.Controllers
         public IActionResult EditMark(int id, string markTitle, int mark)
         {
             if (!_validator.ValidMark(mark) ||
-                _validator.IdCannotBeFound(id) || _validator.InvalidTitle(markTitle))
+                !_schoolService.IdIsValid(id) || _validator.InvalidTitle(markTitle))
             {
                 return BadRequest();
             }
@@ -51,7 +51,7 @@ namespace SchoolApi.Controllers
         [Route("exam")]
         public IActionResult SetExamDate(int id, string examTitle, DateTime date)
         {
-            if (_validator.IdCannotBeFound(id) || _validator.InvalidTitle(examTitle))
+            if (!_schoolService.IdIsValid(id) || _validator.InvalidTitle(examTitle))
             {
                 return BadRequest();
             }
@@ -63,6 +63,14 @@ namespace SchoolApi.Controllers
         public IActionResult GetAll()
         {
             return Ok(_schoolService.GetAll());
+        }
+
+        [HttpGet]
+        [Route("email")]
+        public IActionResult SendEmail(int id, string examTitle)
+        {
+            var response = _schoolService.SendEmail(id, examTitle);
+            return Ok();
         }
     }
 }

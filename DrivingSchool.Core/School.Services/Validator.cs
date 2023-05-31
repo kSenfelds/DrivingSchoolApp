@@ -1,7 +1,7 @@
 using DrivingSchool.Core.Models;
 using DrivingSchool.Core.Services;
 
-namespace SchoolApi;
+namespace School.Services;
 
 public class Validator: IValidator
 {

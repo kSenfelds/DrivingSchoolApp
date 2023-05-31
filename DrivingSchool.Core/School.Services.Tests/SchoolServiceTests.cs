@@ -57,6 +57,18 @@ public class SchoolServiceTests
     }
 
     [Test]
+    public void IdIsValid_ValidIdProvided_ReturnTrue()
+    {
+        _service.IdIsValid(1).Should().BeTrue();
+    }
+
+    [Test]
+    public void IdIsValid_InvalidIdProvided_ReturnFalse()
+    {
+        _service.IdIsValid(5).Should().BeFalse();
+    }
+
+    [Test]
     public void EditMark_ValidInfoProvided_ShouldEditGivenMark()
     {
         _service.EditMark(1, "theory", 10);

@@ -20,7 +20,7 @@ export const DeleteStudent = async (id: number) => {
     }
 }
 
-export const EditMark = async (id: number, markTitle: ["theory" | "driving"], mark: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) => {
+export const EditMark = async (id: number, markTitle: ["theory" | "driving"], mark: number) => {
     try {
         await axios.post(`${BASE_URL}registration/mark?id=${id}&markTitle=${markTitle}&mark=${mark}`);
     }catch(error){
@@ -30,7 +30,8 @@ export const EditMark = async (id: number, markTitle: ["theory" | "driving"], ma
 
 export const SetExamDate = async (id: number, examTitle: ["theory" | "driving"], date: Date) => {
     try {
-        await axios.post(`${BASE_URL}registration/exam?id=${id}&examTitle=${examTitle}&date=${date}`);
+        const response = await axios.post(`${BASE_URL}registration/exam?id=${id}&examTitle=${examTitle}&date=${date.toISOString()}`);
+        return response.status;
     }catch(error){
         console.log(error)
     }
@@ -40,6 +41,14 @@ export const GetAllStudents = async () => {
     try {
         const { data } = await axios.get(`${BASE_URL}registration`);
         return data;
+    }catch(error){
+        console.log(error)
+    }
+}
+export const SendEmail = async (id: number, examTitle: ["theory" | "driving"]) => {
+    try {
+        const response = await axios.get(`${BASE_URL}registration/email?id=${id}&examTitle=${examTitle}`);
+        return response.status;
     }catch(error){
         console.log(error)
     }

@@ -3,6 +3,8 @@ using DrivingSchool.Core.Services;
 using DrivingSchool.Data;
 using Microsoft.EntityFrameworkCore;
 using School.Services;
+using SchoolApi;
+using Validator = System.ComponentModel.DataAnnotations.Validator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ builder.Services.AddDbContext<SchoolDbContext>(options =>
 builder.Services.AddScoped<ISchoolDbContext, SchoolDbContext>();
 builder.Services.AddScoped<IEntityService<Student>, EntityService<Student>>();
 builder.Services.AddScoped<ISchoolService, SchoolService>();
+builder.Services.AddScoped<IValidator, School.Services.Validator>();
 
 var app = builder.Build();
 
