@@ -7,6 +7,7 @@ import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css"
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
+import "../Styles/StudentList.scss";
 
 export const StudentList = () => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -124,7 +125,7 @@ export const StudentList = () => {
                                 }}
                                 value={date}
                               />
-                              <button
+                              <button className="button"
                                 onClick={() => {
                                   handleSetDateClick(
                                     student,
@@ -140,8 +141,8 @@ export const StudentList = () => {
                               Driving exam -{" "}
                               {student.dateOfDrivingExam
                                 .toString()
-                                .substring(0, 10)}
-                              <button
+                                .substring(0, 20).replace("T", " ")}
+                              <button className="button"
                                 onClick={(event) => {
                                   SendEmail(student.id!, ["driving"]).then(
                                     () => {
@@ -163,7 +164,7 @@ export const StudentList = () => {
                                 onChange={(e) => setDate(e as Date)}
                                 value={date}
                               />
-                              <button
+                              <button className="button"
                                 onClick={() => {
                                   handleSetDateClick(
                                     student,
@@ -179,8 +180,8 @@ export const StudentList = () => {
                               Theory exam -{" "}
                               {student.dateOfTheoryExam
                                 .toString()
-                                .substring(0, 10)}
-                              <button
+                                .substring(0, 20).replace("T", " ")}
+                              <button className="button"
                                 onClick={(event) => {
                                   SendEmail(student.id!, ["theory"]).then(
                                     () => {
@@ -205,7 +206,7 @@ export const StudentList = () => {
                                   setMark(event.target.valueAsNumber!);
                                 }}
                               />
-                              <button
+                              <button className="button"
                                 onClick={() => {
                                   handleSetMarkClick(
                                     student,
@@ -232,7 +233,7 @@ export const StudentList = () => {
                                   setMark(event.target.valueAsNumber!);
                                 }}
                               />
-                              <button
+                              <button className="button"
                                 onClick={() => {
                                   handleSetMarkClick(
                                     student,
