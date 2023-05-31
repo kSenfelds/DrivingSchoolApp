@@ -3,8 +3,6 @@ using DrivingSchool.Core.Services;
 using DrivingSchool.Data;
 using Microsoft.EntityFrameworkCore;
 using School.Services;
-using SchoolApi;
-using Validator = System.ComponentModel.DataAnnotations.Validator;
 
 var builder = WebApplication.CreateBuilder(args);
 

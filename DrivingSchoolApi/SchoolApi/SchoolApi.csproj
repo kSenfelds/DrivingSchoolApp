@@ -23,7 +23,6 @@
     <ProjectReference Include="..\DrivingSchool.Core\DrivingSchool.Core.csproj" />
     <ProjectReference Include="..\DrivingScool.Data\DrivingSchool.Data.csproj" />
     <ProjectReference Include="..\School.Services\School.Services.csproj" />
-    <ProjectReference Include="..\SendGridEmailSender\SendGridEmailSender.csproj" />
   </ItemGroup>
 
 </Project>
