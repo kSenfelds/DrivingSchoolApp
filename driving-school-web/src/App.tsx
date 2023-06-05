@@ -1,14 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import { RegistrationForm } from './Components/RegistrationForm';
-import { StudentList } from './Components/StudentList';
+import {Route, Routes} from 'react-router-dom';
+import { RegristrationView } from './Views/RegristrationView';
+import { NavBar } from './Components/NavBar';
+import { StudentsView } from './Views/StudentsView';
+
 
 function App() {
   return (
     <>
-      <RegistrationForm/>
-      <StudentList/>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<RegristrationView />} />
+      <Route path="/students" element={<StudentsView />} />
+    </Routes>
     </>
   );
 }

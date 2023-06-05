@@ -6,7 +6,9 @@ const BASE_URL = "https://localhost:7255/"
 
 export const AddStudent = async (student: Student) => {
     try {
-        await axios.put(`${BASE_URL}registration`, student);
+       const response = await axios.put(`${BASE_URL}registration`, student);
+        return response.status;
+
     }catch(error){
         console.log(error)
     }

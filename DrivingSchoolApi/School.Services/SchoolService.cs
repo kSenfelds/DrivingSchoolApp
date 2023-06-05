@@ -77,11 +77,13 @@ namespace School.Services
                 MailMessage newMail = new MailMessage();
                 newMail.From = new MailAddress("testdrivingschoolapi@gmail.com");
                 newMail.To.Add(reciever);
-                newMail.Subject = examTitle == "theory" ? $"Theory exam for {student.Name} {student.LastName}" :
-                    $"Driving exam for {student.Name} {student.LastName}";
-                newMail.Body = examTitle == "theory" ? $"Your theory exam is scheduled for {student.DateOfTheoryExam}, " +
-                                                       $"Your unique code : {student.UniqueTheoryCode}" :
-                    $"Your driving exam is scheduled for {student.DateOfDrivingExam}, Your unique code : {student.UniqueDrivingCode}";
+                newMail.Subject = examTitle == "theory"
+                    ? $"Theory exam for {student.Name} {student.LastName}"
+                    : $"Driving exam for {student.Name} {student.LastName}";
+                newMail.Body = examTitle == "theory"
+                    ? $"Your theory exam is scheduled for {student.DateOfTheoryExam}, " +
+                      $"Your unique code : {student.UniqueTheoryCode}"
+                    : $"Your driving exam is scheduled for {student.DateOfDrivingExam}, Your unique code : {student.UniqueDrivingCode}";
                 newMail.IsBodyHtml = true;
 
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
@@ -97,7 +99,6 @@ namespace School.Services
             {
                 Console.WriteLine(ex);
             }
-            
         }
     }
 }
